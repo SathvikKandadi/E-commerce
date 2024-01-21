@@ -6,8 +6,8 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 export default function Footer()
 {
     return(
-        <div className="bg-black">
-            <div className="flex flex-row justify-around">
+        <div className="bg-black ">
+            <div className="flex flex-row justify-around flex-grow">
             <div className="m-2">
                 <div className="text-red-500 font-bold text-sm m-2 pt-6 pb-4">LINKS</div>
                 <div className="text-white text-xs m-2">About</div>
@@ -38,8 +38,7 @@ export default function Footer()
                 <div className='text-white text-xs'>
                     Copyright <CopyrightIcon style={{color: 'white', fontSize: 'small'}}/> 2023, Sneakerz.co.in
                 </div>
-            </div>
-            
+            </div>  
         </div>
         
     )
