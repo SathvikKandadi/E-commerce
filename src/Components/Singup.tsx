@@ -67,7 +67,8 @@ const Signup: NextPage = () => {
             } catch (error: any) {
                 console.error('Sign-up failed:', error.response?.data || error.message || 'Unknown error');
                 // Handle the error and provide feedback to the user
-                alert("Sign-up failed. Please try again later.");
+                alert(error.response?.data.message || "Sign-up failed. Please try again later.");
+                // alert("Sign-up failed. Please try again later.");
             }
         }
     };
