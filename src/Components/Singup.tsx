@@ -18,6 +18,7 @@ const Signup: NextPage = () => {
     const [password, setPassword] = useState("");
     const session = useSession();
     const router = useRouter();
+    const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
 
     if (session.data)
         router.push("/");
@@ -51,7 +52,7 @@ const Signup: NextPage = () => {
             alert("Required credentials are empty");
         } else {
             try {
-                const resp = await axios.post("http://localhost:3000/api/createNewUser", {
+                const resp = await axios.post(`${apiUrl}/api/createNewUser`, {
                     username: username,
                     email: email,
                     password: password,

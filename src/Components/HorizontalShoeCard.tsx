@@ -32,10 +32,11 @@ export default function HorizontalShoeCard()
     }   
     const [shoe, setShoe] = useState<Shoe | undefined>();
     const [quantity,setQuantity] = useState(1);
+    const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
     useEffect(() => {
         const fetchData = async () => {
           try {
-                const resp = await axios.get(`http://localhost:3000/api/shoe/${title}`);
+                const resp = await axios.get(`${apiUrl}/api/shoe/${title}`);
                 setShoe(resp.data.shoe);
           } catch (error) {
             console.error("Error fetching shoe data:", error);
@@ -102,7 +103,7 @@ export default function HorizontalShoeCard()
         {
             try {
                 const user=session.data.user;
-                const resp = await axios.post('http://localhost:3000/api/insertIntoCart', {
+                const resp = await axios.post(`${apiUrl}/api/insertIntoCart`, {
                 user: user,
                 shoe:shoe?._id ,
                 quantity:quantity,
