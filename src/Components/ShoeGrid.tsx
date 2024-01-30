@@ -55,7 +55,7 @@ export default function ShoeGrid({ searchParams,
       {
         try {
           console.log(currentPage + " in resp");
-          const resp = await axios.get(`http://localhost:3000/api/getAllShoes?page=${currentPage}`);
+          const resp = await axios.get(`https://sneakerz-ebon.vercel.app/api/getAllShoes?page=${currentPage}`);
           console.log(resp.data);
           setShoes(resp.data.shoes);
           setTotalPages(resp.data.totalPages);
