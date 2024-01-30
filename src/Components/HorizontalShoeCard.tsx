@@ -32,7 +32,8 @@ export default function HorizontalShoeCard()
     }   
     const [shoe, setShoe] = useState<Shoe | undefined>();
     const [quantity,setQuantity] = useState(1);
-    const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+    // const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+    const apiUrl ="";
     useEffect(() => {
         const fetchData = async () => {
           try {
