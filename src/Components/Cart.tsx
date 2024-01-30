@@ -24,7 +24,8 @@ function Cart() {
     const [cart, setCart] = useState<Order[]>([]);
     const session = useSession();
     const router = useRouter();
-    const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+    // const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+    const apiUrl ="";
 
     useEffect(() => {
         if (session.data) {

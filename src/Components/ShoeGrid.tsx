@@ -28,7 +28,8 @@ export default function ShoeGrid({ searchParams,
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   let query = searchParams?.query || '';
-  const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+  // const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
+  const apiUrl ="";
 
   useEffect(() => {
     const fetchData = async () => {
