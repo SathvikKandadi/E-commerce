@@ -28,14 +28,14 @@ export default function ShoeGrid({ searchParams,
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   let query = searchParams?.query || '';
-
+  const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
 
   useEffect(() => {
     const fetchData = async () => {
       if(query.length > 1)
       {
         try{
-            const resp = await axios.get(`http://localhost:3000/api/search/shoe/${query}`);
+            const resp = await axios.get(`${apiUrl}/api/search/shoe/${query}`);
             if(resp.data.message === "No such Shoe found!")
             {
               alert('No such Shoe found!');
@@ -55,7 +55,7 @@ export default function ShoeGrid({ searchParams,
       {
         try {
           console.log(currentPage + " in resp");
-          const resp = await axios.get(`https://sneakerz-ebon.vercel.app/api/getAllShoes?page=${currentPage}`);
+          const resp = await axios.get(`${apiUrl}/api/getAllShoes?page=${currentPage}`);
           console.log(resp.data);
           setShoes(resp.data.shoes);
           setTotalPages(resp.data.totalPages);

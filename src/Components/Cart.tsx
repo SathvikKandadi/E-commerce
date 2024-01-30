@@ -24,6 +24,7 @@ function Cart() {
     const [cart, setCart] = useState<Order[]>([]);
     const session = useSession();
     const router = useRouter();
+    const apiUrl = process.env.NEXT_APP_API_URL || 'http://localhost:3000';
 
     useEffect(() => {
         if (session.data) {
@@ -31,7 +32,7 @@ function Cart() {
 
             const fetchData = async () => {
                 try {
-                    const resp = await axios.get(`http://localhost:3000/api/cart/${username}`);
+                    const resp = await axios.get(`${apiUrl}/api/cart/${username}`);
                     setCart(resp.data.cart);
                 } catch (error) {
                     console.error("Error fetching cart data:", error);
@@ -128,7 +129,7 @@ function Cart() {
 
     async function removeShoe(title: string) {
         // console.log(title);
-        const resp = await axios.post(`http://localhost:3000/api/cart/product/${title}`,
+        const resp = await axios.post(`${apiUrl}/api/cart/product/${title}`,
             {
                 username: session.data?.user?.name,
             }
